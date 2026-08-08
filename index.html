@@ -130,7 +130,7 @@
                 <a href="#mindset" class="hover:text-gold transition-colors">Culture</a>
                 <a href="#match-centre" class="hover:text-gold transition-colors">Fixtures</a>
                 <a href="#leadership" class="hover:text-gold transition-colors">Leadership</a>
-                <a href="#squad" class="hover:text-gold transition-colors">Playing XI</a>
+                <a href="#squad" class="hover:text-gold transition-colors">Squad</a>
                 <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
                 <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
             </nav>
@@ -732,43 +732,29 @@
             { name: "Devendra", role: "Batter" },
             { name: "Ameya", role: "All-rounder" }
         ];
+// Render Full Squad into Single Grid
+    const squadContainer = document.getElementById('squad-grid');
+    if (squadContainer) {
+        squadContainer.innerHTML = ''; // Clear container
+        
+        // Combine both groups into one full squad list
+        const fullSquad = [...playingXI, ...extendedSquad];
 
-        // Render Playing XI
-        const xiContainer = document.getElementById('xi-grid');
-        playingXI.forEach((player, idx) => {
+        fullSquad.forEach(player => {
             const card = document.createElement('div');
-            card.className = "glass-card p-6 rounded-4xl relative overflow-hidden border border-gold/15 hover:border-gold/40 transition-all group";
+            card.className = "glass-card p-5 rounded-2xl border border-white/10 flex items-center gap-4 hover:border-gold/40 transition-all";
             card.innerHTML = `
-                <div class="flex items-center justify-between mb-4">
-                    <span class="text-[10px] font-mono text-slate-500">#${idx + 1 < 10 ? '0' + (idx + 1) : idx + 1}</span>
-                    ${player.captain ? '<span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded bg-gold/20 text-gold border border-gold/40 font-bold">Captain</span>' : ''}
+                <div class="w-12 h-12 rounded-full bg-navy border border-gold/30 flex items-center justify-center text-gold font-serif text-lg font-bold">
+                    ${player.number || '•'}
                 </div>
-                <div class="w-20 h-20 mx-auto rounded-full bg-navy-light border border-white/10 flex items-center justify-center my-4 text-slate-500 group-hover:border-gold/40 transition-colors">
-                    <i data-lucide="user" class="w-10 h-10 text-gold/40"></i>
+                <div>
+                    <h5 class="font-serif text-base text-white">${player.name}</h5>
+                    <span class="text-[10px] text-slate-400 block mt-0.5 uppercase tracking-wider">${player.role}</span>
                 </div>
-                <div class="text-center">
-                    <h4 class="font-serif text-xl text-white group-hover:text-gold transition-colors">${player.name}</h4>
-                    <p class="text-xs text-slate-400 mt-1">${player.role}</p>
-                </div>
-            `;
-            xiContainer.appendChild(card);
-        });
-
-        // Render Extended Squad
-        const squadContainer = document.getElementById('squad-grid');
-        extendedSquad.forEach(player => {
-            const card = document.createElement('div');
-            card.className = "glass-card p-4 rounded-3xl text-center border border-white/5 hover:border-gold/30 transition-all";
-            card.innerHTML = `
-                <div class="w-10 h-10 mx-auto rounded-full bg-navy-light flex items-center justify-center mb-2">
-                    <i data-lucide="user" class="w-5 h-5 text-slate-500"></i>
-                </div>
-                <h5 class="font-serif text-base text-white">${player.name}</h5>
-                <span class="text-[10px] text-slate-400 block mt-0.5">${player.role}</span>
             `;
             squadContainer.appendChild(card);
         });
-
+    }
         // Re-run Lucide icon parser for dynamically injected elements
         lucide.createIcons();
 
