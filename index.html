@@ -46,25 +46,22 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-</script>
+    <style>
+        /* Continuous Logo Marquee Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: scroll 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
 
-<style>
-/* Continuous Logo Marquee Animation */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-    display: flex;
-    width: 200%;
-    animation: scroll 25s linear infinite;
-}
-.animate-marquee:hover {
-    animation-play-state: paused;
-}
-
-/* Custom Glassmorphism & Gold Gradients */
-.glass-nav {
+        /* Custom Glassmorphism & Gold Gradients */
         .glass-nav {
             background: rgba(11, 31, 58, 0.85);
             backdrop-filter: blur(12px);
@@ -109,7 +106,7 @@
 </head>
 <body class="bg-navy-dark text-charcoal font-sans antialiased selection:bg-gold selection:text-navy">
 
-<!-- 1. STICKY NAVIGATION -->
+    <!-- 1. STICKY NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a1120] border-b border-gold/20 shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
             
@@ -154,6 +151,7 @@
             <a href="#match-centre" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Fixtures</a>
             <a href="#leadership" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Leadership</a>
             <a href="#squad" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Playing XI</a>
+            <a href="#hall-of-fame" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Hall of Fame</a>
             <a href="#gallery" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Gallery</a>
             <a href="#contact" class="mobile-nav-link text-white hover:text-gold text-sm uppercase tracking-wider">Contact</a>
             <a href="#contact" class="gold-button text-center py-3 rounded-full text-navy font-bold text-xs uppercase tracking-wider mt-2">
@@ -412,7 +410,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Leader Card Template -->
                     <div class="glass-card p-6 rounded-4xl flex items-center gap-4 hover:border-gold/30 transition-all">
                         <div class="w-16 h-16 rounded-full bg-navy-light border border-gold/30 flex items-center justify-center shrink-0">
                             <i data-lucide="user" class="w-8 h-8 text-gold/60"></i>
@@ -477,32 +474,27 @@
         </section>
 
         <!-- 7. SQUAD SECTION -->
-    <section id="squad" class="py-24 bg-navy-dark relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
-            <!-- Unified Section Header -->
-         <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block mb-2">Official Roster</span>
-                <h2 class="font-serif text-4xl lg:text-5xl text-white font-normal">
-                    Squad
-                </h2>
-                <p class="text-slate-400 text-sm mt-3 font-light tracking-wide">
-                    Lineup for upcoming championship matchdays
-                </p>
+        <section id="squad" class="py-24 bg-navy-dark relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block mb-2">Official Roster</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-white font-normal">
+                        Squad
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-3 font-light tracking-wide">
+                        Lineup for upcoming championship matchdays
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="squad-grid">
+                    <!-- Players populate via JS -->
+                </div>
             </div>
-            
-            <!-- Single Unified Roster Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="squad-grid">
-                <!-- All players populate here via JS -->
-            </div>
+        </section>
 
-        </div>
-    </section>
         <!-- HALL OF FAME SECTION -->
         <section id="hall-of-fame" class="py-24 bg-navy relative border-t border-gold/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
-                
-                <!-- Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block mb-2">Club Honors</span>
                     <h2 class="font-serif text-4xl lg:text-5xl text-white font-normal">
@@ -513,13 +505,12 @@
                     </p>
                 </div>
 
-                <!-- Award Winners Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="hall-of-fame-grid">
-                    <!-- Winner cards render here via JS -->
+                    <!-- Winner cards render via JS -->
                 </div>
-
             </div>
         </section>
+
         <!-- 8. GALLERY -->
         <section id="gallery" class="py-24 bg-navy">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -562,7 +553,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- 9. SPONSORS -->
         <section id="sponsors" class="py-20 bg-navy-dark border-t border-b border-gold/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
@@ -639,72 +630,63 @@
                     <div class="glass-card p-10 rounded-4xl border border-gold/20">
                         <h3 class="font-serif text-2xl text-white mb-6">Player Application Form</h3>
                         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-    <!-- Web3Forms Access Key -->
-    <input type="hidden" name="access_key" value="970897ad-7a88-412f-825a-8effb597c643">
+                            <input type="hidden" name="access_key" value="970897ad-7a88-412f-825a-8effb597c643">
 
-    <div>
-        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Full Name</label>
-        <input type="text" name="Full Name" required placeholder="John Doe"
-            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-    </div>
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Full Name</label>
+                                <input type="text" name="Full Name" required placeholder="John Doe"
+                                    class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+                            </div>
 
-    <div>
-        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Primary Role</label>
-        <select name="Role" class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-            <option>Batsman</option>
-            <option>Bowler</option>
-            <option>All-rounder</option>
-            <option>Wicketkeeper Batsman</option>
-        </select>
-    </div>
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Primary Role</label>
+                                <select name="Role" class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+                                    <option>Batsman</option>
+                                    <option>Bowler</option>
+                                    <option>All-rounder</option>
+                                    <option>Wicketkeeper Batsman</option>
+                                </select>
+                            </div>
 
-    <div>
-        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Phone Number</label>
-        <input type="tel" name="Phone" required placeholder="+64 21 000 0000"
-            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-    </div>
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Phone Number</label>
+                                <input type="tel" name="Phone" required placeholder="+64 21 000 0000"
+                                    class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+                            </div>
 
-    <div>
-        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Playing Experience</label>
-        <textarea name="Experience" rows="3" required placeholder="Tell us about your previous cricket experience..."
-            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"></textarea>
-    </div>
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Playing Experience</label>
+                                <textarea name="Experience" rows="3" required placeholder="Tell us about your previous cricket experience..."
+                                    class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"></textarea>
+                            </div>
 
-<button type="submit" class="w-full bg-gold hover:bg-gold/90 text-navy-dark font-extrabold py-4 px-6 rounded-2xl uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-gold/20 cursor-pointer mt-4">
-    Submit Application
-</button>
-</form>
+                            <button type="submit" class="w-full bg-gold hover:bg-gold/90 text-navy-dark font-extrabold py-4 px-6 rounded-2xl uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-gold/20 cursor-pointer mt-4">
+                                Submit Application
+                            </button>
+                        </form>
                     </div>
 
                 </div>
             </div>
         </section>
     </main>
-<!-- BOTTOM SPONSOR LOGO BAR (CLEAN & STATIC) -->
-        <div class="bg-navy-dark border-t border-b border-gold/10 py-10 relative z-20">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                
-                <span class="text-[10px] uppercase tracking-[0.3em] text-gold/80 font-bold block mb-8">Official Crusaders Partners</span>
-                
-                <!-- Static Logo Row (Only SP1 and SP2) -->
-                <div class="flex items-center justify-center gap-10 md:gap-16">
-                    
-                    <!-- Sponsor 1 -->
-                    <div class="flex items-center justify-center p-3">
-                        <img src="SP1.jpg" alt="Sponsor 1" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-90 hover:opacity-100 hover:scale-105">
-                    </div>
 
-                    <!-- Divider Star -->
-                    <span class="text-gold/40 font-serif text-lg">★</span>
-
-                    <!-- Sponsor 2 -->
-                    <div class="flex items-center justify-center p-3">
-                        <img src="SP2.jpeg" alt="Sponsor 2" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-90 hover:opacity-100 hover:scale-105">
-                    </div>
-
+    <!-- BOTTOM SPONSOR LOGO BAR -->
+    <div class="bg-navy-dark border-t border-b border-gold/10 py-10 relative z-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-gold/80 font-bold block mb-8">Official Crusaders Partners</span>
+            <div class="flex items-center justify-center gap-10 md:gap-16">
+                <div class="flex items-center justify-center p-3">
+                    <img src="SP1.jpg" alt="Sponsor 1" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-90 hover:opacity-100 hover:scale-105">
+                </div>
+                <span class="text-gold/40 font-serif text-lg">★</span>
+                <div class="flex items-center justify-center p-3">
+                    <img src="SP2.jpeg" alt="Sponsor 2" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
             </div>
         </div>
+    </div>
+
     <footer class="bg-navy-dark py-12 border-t border-white/10 text-xs text-slate-500">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
@@ -720,20 +702,97 @@
         </div>
     </footer>
 
-    <!-- SCRIPT SECTION: Roster Data Rendering & Interactivity -->
+    <!-- INDIVIDUAL EXCELLENCE MODAL -->
+    <div id="excellenceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-navy border border-gold/30 rounded-3xl max-w-2xl w-full p-6 md:p-8 relative shadow-2xl">
+            <button onclick="closeExcellenceModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-2">
+                ✕
+            </button>
+            <div class="text-center mb-6">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block">Record Performances</span>
+                <h3 class="font-serif text-3xl text-white mt-1">Individual Excellence</h3>
+                <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
+            </div>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+                <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                    <div>
+                        <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
+                        <p class="text-xs text-slate-400">vs Eden Strikers</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gold font-mono font-bold text-lg block">6/53</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                    <div>
+                        <h4 class="font-serif text-lg text-white font-semibold">Monish Naik</h4>
+                        <p class="text-xs text-slate-400">vs Blues</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gold font-mono font-bold text-lg block">5/34</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                    <div>
+                        <h4 class="font-serif text-lg text-white font-semibold">Sandeep Jadhav</h4>
+                        <p class="text-xs text-slate-400">vs ECC</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gold font-mono font-bold text-lg block">5/9</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                    <div>
+                        <h4 class="font-serif text-lg text-white font-semibold">Nikhil Jagtap</h4>
+                        <p class="text-xs text-slate-400">vs ECC</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gold font-mono font-bold text-lg block">136</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                    <div>
+                        <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
+                        <p class="text-xs text-slate-400">vs WCC XI</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gold font-mono font-bold text-lg block">5/24</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT SECTION -->
     <script>
+        // Modal Control Functions
+        function openExcellenceModal() {
+            document.getElementById('excellenceModal').classList.remove('hidden');
+        }
+
+        function closeExcellenceModal() {
+            document.getElementById('excellenceModal').classList.add('hidden');
+        }
+
         // Initialize Lucide Icons
         lucide.createIcons();
 
         // 1. Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => menu.classList.add('hidden'));
-        });
+        if (btn && menu) {
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => menu.classList.add('hidden'));
+            });
+        }
 
-        // 2. Roster Data Schema (Designed for future API/CMS backend)
+        // 2. Roster Data Schema
         const playingXI = [
             { name: "Parth Patel", role: "Wicketkeeper Batsman", captain: false },
             { name: "Nikhil Jagtap", role: "Batsman", captain: false },
@@ -761,147 +820,54 @@
             { name: "Devendra Oak", role: "Batsman" },
             { name: "Ameya Patki", role: "All-rounder" }
         ];
-// Render Full Squad into Single Grid
-    const squadContainer = document.getElementById('squad-grid');
-    if (squadContainer) {
-        squadContainer.innerHTML = ''; // Clear container
-        
-        // Combine both groups into one full squad list
-        const fullSquad = [...playingXI, ...extendedSquad];
 
-        fullSquad.forEach(player => {
-            const card = document.createElement('div');
-            card.className = "glass-card p-5 rounded-2xl border border-white/10 flex items-center gap-4 hover:border-gold/40 transition-all";
-            card.innerHTML = `
-                <div class="w-12 h-12 rounded-full bg-navy border border-gold/30 flex items-center justify-center text-gold font-serif text-lg font-bold">
-                    ${player.number || '•'}
-                </div>
-                <div>
-                    <h5 class="font-serif text-base text-white">${player.name}</h5>
-                    <span class="text-[10px] text-slate-400 block mt-0.5 uppercase tracking-wider">${player.role}</span>
-                </div>
-            `;
-            squadContainer.appendChild(card);
-        });
-    }
-        // Re-run Lucide icon parser for dynamically injected elements
-        lucide.createIcons();
-// Hall of Fame Data
-    const hallOfFameData = [
-        { name: "Player Name 1", award: "Best Fielder", year: "2025/26", icon: "🧤" },
-        { name: "Player Name 2", award: "Best Batsman", year: "2025/26", icon: "🏏" },
-        { name: "Player Name 3", award: "Best Bowler", year: "2025/26", icon: "🎯" }
-    ];
+        // Render Full Squad
+        const squadContainer = document.getElementById('squad-grid');
+        if (squadContainer) {
+            squadContainer.innerHTML = '';
+            const fullSquad = [...playingXI, ...extendedSquad];
 
-    // Render Hall of Fame
-    const hofGrid = document.getElementById('hall-of-fame-grid');
-    if (hofGrid) {
-        hofGrid.innerHTML = '';
-        hallOfFameData.forEach(winner => {
-            const card = document.createElement('div');
-            card.className = "glass-card p-6 rounded-3xl border border-gold/20 text-center hover:border-gold/50 transition-all";
-            card.innerHTML = `
-                <div class="w-14 h-14 mx-auto rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-4 text-2xl">
-                    ${winner.icon}
-                </div>
-                <h4 class="font-serif text-xl text-white">${winner.name}</h4>
-                <p class="text-xs text-gold uppercase tracking-wider font-semibold mt-1">${winner.award}</p>
-                <p class="text-xs text-slate-400 mt-2">${winner.year}</p>
-            `;
-            hofGrid.appendChild(card);
-        });
-    }
-        <!-- INDIVIDUAL EXCELLENCE MODAL -->
-<div id="excellenceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-navy border border-gold/30 rounded-3xl max-w-2xl w-full p-6 md:p-8 relative shadow-2xl">
-        
-        <!-- Close Button -->
-        <button onclick="closeExcellenceModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-2">
-            ✕
-        </button>
+            fullSquad.forEach(player => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-5 rounded-2xl border border-white/10 flex items-center gap-4 hover:border-gold/40 transition-all";
+                card.innerHTML = `
+                    <div class="w-12 h-12 rounded-full bg-navy border border-gold/30 flex items-center justify-center text-gold font-serif text-lg font-bold">
+                        ${player.captain ? 'C' : '•'}
+                    </div>
+                    <div>
+                        <h5 class="font-serif text-base text-white">${player.name}</h5>
+                        <span class="text-[10px] text-slate-400 block mt-0.5 uppercase tracking-wider">${player.role}</span>
+                    </div>
+                `;
+                squadContainer.appendChild(card);
+            });
+        }
 
-        <!-- Modal Header -->
-        <div class="text-center mb-6">
-            <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block">Record Performances</span>
-            <h3 class="font-serif text-3xl text-white mt-1">Individual Excellence</h3>
-            <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
-        </div>
+        // Hall of Fame Data
+        const hallOfFameData = [
+            { name: "Player Name 1", award: "Best Fielder", year: "2025/26", icon: "🧤" },
+            { name: "Player Name 2", award: "Best Batsman", year: "2025/26", icon: "🏏" },
+            { name: "Player Name 3", award: "Best Bowler", year: "2025/26", icon: "🎯" }
+        ];
 
-        <!-- Milestones List -->
-        <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
-            
-            <!-- Performance 1 -->
-            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
-                <div>
-                    <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
-                    <p class="text-xs text-slate-400">vs Eden Strikers</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-gold font-mono font-bold text-lg block">6/53</span>
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
-                </div>
-            </div>
-
-            <!-- Performance 2 -->
-            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
-                <div>
-                    <h4 class="font-serif text-lg text-white font-semibold">Monish Naik</h4>
-                    <p class="text-xs text-slate-400">vs Blues</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-gold font-mono font-bold text-lg block">5/34</span>
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
-                </div>
-            </div>
-
-            <!-- Performance 3 -->
-            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
-                <div>
-                    <h4 class="font-serif text-lg text-white font-semibold">Sandeep Jadhav</h4>
-                    <p class="text-xs text-slate-400">vs ECC</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-gold font-mono font-bold text-lg block">5/9</span>
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
-                </div>
-            </div>
-
-            <!-- Performance 4 -->
-            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
-                <div>
-                    <h4 class="font-serif text-lg text-white font-semibold">Nikhil Jagtap</h4>
-                    <p class="text-xs text-slate-400">vs ECC</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-gold font-mono font-bold text-lg block">136</span>
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
-                </div>
-            </div>
-
-            <!-- Performance 5 -->
-            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
-                <div>
-                    <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
-                    <p class="text-xs text-slate-400">vs WCC XI</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-gold font-mono font-bold text-lg block">5/24</span>
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-        // Modal Control Functions
-function openExcellenceModal() {
-    document.getElementById('excellenceModal').classList.remove('hidden');
-}
-
-function closeExcellenceModal() {
-    document.getElementById('excellenceModal').classList.add('hidden');
-}
+        // Render Hall of Fame
+        const hofGrid = document.getElementById('hall-of-fame-grid');
+        if (hofGrid) {
+            hofGrid.innerHTML = '';
+            hallOfFameData.forEach(winner => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-6 rounded-3xl border border-gold/20 text-center hover:border-gold/50 transition-all";
+                card.innerHTML = `
+                    <div class="w-14 h-14 mx-auto rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-4 text-2xl">
+                        ${winner.icon}
+                    </div>
+                    <h4 class="font-serif text-xl text-white">${winner.name}</h4>
+                    <p class="text-xs text-gold uppercase tracking-wider font-semibold mt-1">${winner.award}</p>
+                    <p class="text-xs text-slate-400 mt-2">${winner.year}</p>
+                `;
+                hofGrid.appendChild(card);
+            });
+        }
     </script>
 </body>
 </html>
