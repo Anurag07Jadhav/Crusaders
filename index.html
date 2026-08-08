@@ -536,7 +536,16 @@
                             <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">HIGHLIGHTS</span>
                             <h4 class="font-serif text-xl text-white">In Action</h4>
                         </div>
-                    </div>
+                    <<!-- INDIVIDUAL EXCELLENCE CARD -->
+<div onclick="openExcellenceModal()" class="glass-card rounded-4xl h-72 overflow-hidden relative group cursor-pointer border border-gold/20 hover:border-gold/60 transition-all">
+    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800&auto=format&fit=crop" 
+         alt="Individual Excellence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+    <div class="absolute bottom-6 left-6 right-6">
+        <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">Honors</span>
+        <h3 class="font-serif text-2xl text-white mt-1">Individual Excellence</h3>
+        <p class="text-xs text-slate-300 mt-1 underline decoration-gold/50">Click to view match milestones →</p>
+    </div>
+</div>
                     <div class="glass-card rounded-4xl h-72 overflow-hidden relative group">
                         <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop" 
                              alt="Match Day" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
@@ -715,7 +724,13 @@
     </footer>
 
     <!-- SCRIPT SECTION: Roster Data Rendering & Interactivity -->
-    <script>
+    <function openExcellenceModal() {
+    document.getElementById('excellenceModal').classList.remove('hidden');
+}
+
+function closeExcellenceModal() {
+    document.getElementById('excellenceModal').classList.add('hidden');
+}>
         // Initialize Lucide Icons
         lucide.createIcons();
 
@@ -806,5 +821,88 @@
         });
     }
     </script>
+    <!-- INDIVIDUAL EXCELLENCE MODAL -->
+<div id="excellenceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-navy border border-gold/30 rounded-3xl max-w-2xl w-full p-6 md:p-8 relative shadow-2xl">
+        
+        <!-- Close Button -->
+        <button onclick="closeExcellenceModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-2">
+            ✕
+        </button>
+
+        <!-- Modal Header -->
+        <div class="text-center mb-6">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block">Record Performances</span>
+            <h3 class="font-serif text-3xl text-white mt-1">Individual Excellence</h3>
+            <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
+        </div>
+
+        <!-- Milestones List -->
+        <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+            
+            <!-- Item 1 -->
+            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                <div>
+                    <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
+                    <p class="text-xs text-slate-400">vs Eden Strikers</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-gold font-mono font-bold text-lg block">6/53</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                <div>
+                    <h4 class="font-serif text-lg text-white font-semibold">Monish Naik</h4>
+                    <p class="text-xs text-slate-400">vs Blues</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-gold font-mono font-bold text-lg block">5/34</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2024–25</span>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                <div>
+                    <h4 class="font-serif text-lg text-white font-semibold">Sandeep Jadhav</h4>
+                    <p class="text-xs text-slate-400">vs ECC</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-gold font-mono font-bold text-lg block">5/9</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                <div>
+                    <h4 class="font-serif text-lg text-white font-semibold">Nikhil Jagtap</h4>
+                    <p class="text-xs text-slate-400">vs ECC</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-gold font-mono font-bold text-lg block">136</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="glass-card p-4 rounded-2xl border border-gold/15 flex items-center justify-between hover:border-gold/40 transition-all">
+                <div>
+                    <h4 class="font-serif text-lg text-white font-semibold">Anurag Jadhav</h4>
+                    <p class="text-xs text-slate-400">vs WCC XI</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-gold font-mono font-bold text-lg block">5/24</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">2025–26</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
