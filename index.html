@@ -510,16 +510,18 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Gallery Item 1 -->
-                    <div class="glass-card rounded-4xl h-72 overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" 
-                             alt="Match Action" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">HIGHLIGHTS</span>
-                            <h4 class="font-serif text-xl text-white">In Action</h4>
-                        </div>
-                    </div>
-
+<!-- Gallery Item 1: In Action (Clickable Gallery) -->
+<div onclick="openActionModal()" class="glass-card rounded-4xl h-72 overflow-hidden relative group cursor-pointer border border-gold/20 hover:border-gold/60 transition-all shadow-lg hover:shadow-gold/20">
+    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" 
+         alt="Match Action" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60">
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent"></div>
+    <div class="absolute bottom-6 left-6 right-6 z-10">
+        <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">HIGHLIGHTS</span>
+        <h4 class="font-serif text-xl text-white mt-0.5">In Action</h4>
+        <p class="text-xs text-gold/90 mt-1 underline decoration-gold/50 font-medium">Click to view photo gallery →</p>
+    </div>
+</div>
+                    
                     <!-- Gallery Item 2: Clickable Individual Excellence Card -->
                     <div onclick="openExcellenceModal()" class="glass-card rounded-4xl h-72 overflow-hidden relative group cursor-pointer border border-gold/30 hover:border-gold transition-all shadow-lg hover:shadow-gold/20">
                         <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop" 
@@ -767,7 +769,41 @@
             </div>
         </div>
     </div>
+<!-- IN ACTION PHOTO GALLERY MODAL -->
+<div id="actionModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0a1120] border border-gold/40 rounded-3xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl">
+        
+        <!-- Close Button -->
+        <button onclick="closeActionModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-2 cursor-pointer z-10">
+            ✕
+        </button>
 
+        <!-- Modal Header -->
+        <div class="text-center mb-6">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block">Match Highlights</span>
+            <h3 class="font-serif text-3xl text-white mt-1">In Action Gallery</h3>
+            <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[65vh] overflow-y-auto pr-1">
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+
+    </div>
+</div>
+                            
     <!-- SCRIPT SECTION -->
     <script>
         // Modal Control Functions
@@ -779,9 +815,13 @@
             document.getElementById('excellenceModal').classList.add('hidden');
         }
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        function openActionModal() {
+            document.getElementById('actionModal').classList.remove('hidden');
+        }
 
+        function closeActionModal() {
+            document.getElementById('actionModal').classList.add('hidden');
+        }
         // 1. Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -869,5 +909,45 @@
             });
         }
     </script>
+                            <!-- IN ACTION PHOTO GALLERY MODAL -->
+<div id="actionModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0a1120] border border-gold/40 rounded-3xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl">
+        
+        <!-- Close Button -->
+        <button onclick="closeActionModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-2 cursor-pointer z-10">
+            ✕
+        </button>
+
+        <!-- Modal Header -->
+        <div class="text-center mb-6">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block">Match Highlights</span>
+            <h3 class="font-serif text-3xl text-white mt-1">In Action Gallery</h3>
+            <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
+        </div>
+
+        <!-- Photo Grid (Add your image URLs / file paths here) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[65vh] overflow-y-auto pr-1">
+            
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+
+            <div class="rounded-2xl overflow-hidden border border-gold/20 h-48 group">
+                <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?q=80&w=800&auto=format&fit=crop" 
+                     alt="Action Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+
+            <!-- You can add more image blocks here by replacing image source paths with your filenames (e.g., src="photo1.jpg") -->
+
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
