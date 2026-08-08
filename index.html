@@ -617,20 +617,24 @@
                     <!-- Right: Form -->
                     <div class="glass-card p-10 rounded-4xl border border-gold/20">
                         <h3 class="font-serif text-2xl text-white mb-6">Player Application Form</h3>
-                        <form id="join-form" class="space-y-4">
-                            <div>
-                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Full Name</label>
-                                <input type="text" required placeholder="John Doe" 
-                                       class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-                            </div>
-                            <div>
-                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Primary Role</label>
-                                <select class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-                                    <option>Batter</option>
-                                    <option>Bowler</option>
-                                    <option>All-rounder</option>
-                                    <option>Wicketkeeper Batter</option>
-                                </select>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="970897ad-7a88-412f-825a-8effb597c643">
+
+    <div>
+        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Full Name</label>
+        <input type="text" name="Full Name" required placeholder="John Doe"
+            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+    </div>
+    
+    <div>
+        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Primary Role</label>
+        <select name="Role" class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+            <option>Batter</option>
+            <option>Bowler</option>
+            <option>All-rounder</option>
+            <option>Wicketkeeper Batter</option>
+        </select>
                             </div>
                             <div>
                                 <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Contact Number / WhatsApp</label>
