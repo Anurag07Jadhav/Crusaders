@@ -626,7 +626,7 @@
         <input type="text" name="Full Name" required placeholder="John Doe"
             class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
     </div>
-    
+
     <div>
         <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Primary Role</label>
         <select name="Role" class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
@@ -635,21 +635,24 @@
             <option>All-rounder</option>
             <option>Wicketkeeper Batter</option>
         </select>
-                            </div>
-                            <div>
-                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Contact Number / WhatsApp</label>
-                                <input type="tel" required placeholder="+64 21 000 0000" 
-                                       class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
-                            </div>
-                            <div>
-                                <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Brief Playing Experience</label>
-                                <textarea rows="3" placeholder="Tell us about your previous teams or experience..." 
-                                          class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"></textarea>
-                            </div>
-                            <button type="submit" class="w-full gold-button py-4 rounded-full text-navy font-bold text-xs uppercase tracking-[0.2em] mt-4">
-                                Submit Application
-                            </button>
-                        </form>
+    </div>
+
+    <div>
+        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Phone Number</label>
+        <input type="tel" name="Phone" required placeholder="+64 21 000 0000"
+            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors">
+    </div>
+
+    <div>
+        <label class="text-xs uppercase tracking-wider text-slate-300 block mb-2">Playing Experience</label>
+        <textarea name="Experience" rows="3" required placeholder="Tell us about your previous cricket experience..."
+            class="w-full bg-navy-dark/80 border border-white/10 rounded-2xl px-5 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"></textarea>
+    </div>
+
+    <button type="submit" class="w-full gold-button text-navy-dark font-bold py-3.5 px-6 rounded-2xl uppercase tracking-wider text-xs hover:opacity-90 transition-opacity mt-2">
+        Submit Application
+    </button>
+</form>
                     </div>
 
                 </div>
@@ -777,12 +780,6 @@
         // Re-run Lucide icon parser for dynamically injected elements
         lucide.createIcons();
 
-        // 3. Form Handling Simulation
-        document.getElementById('join-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Application submitted! The management team will reach out to you shortly.');
-            e.target.reset();
-        });
     </script>
 </body>
 </html>
