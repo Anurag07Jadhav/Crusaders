@@ -160,46 +160,54 @@
         </div>
     </header>
 
-    <main>
-        <!-- 2. HERO SECTION -->
+    <main><!-- 2. HERO SECTION -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-navy">
+            <!-- Background Image Overlay with Lightened Vignette -->
             <div class="absolute inset-0 z-0">
                 <img src="DSC_8534.JPEG" 
                      alt="Cricket Ground Stadium" 
-                     class="w-full h-full object-cover object-center opacity-25 filter contrast-125">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy/80 to-navy/50"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-navy-dark/60 to-navy-dark"></div>
+                     class="w-full h-full object-cover object-center opacity-55 filter contrast-110">
+                <!-- Soft dark overlay to preserve white text readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy/60 to-navy/30"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-navy-dark/40 to-navy-dark"></div>
             </div>
 
+            <!-- Content Container -->
             <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-12 pb-20 flex flex-col items-center">
+                <!-- Location & Badge Header -->
                 <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 mb-8 backdrop-blur-md">
                     <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
                     <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Auckland, New Zealand • Est. 2023</span>
                 </div>
 
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-tight leading-[1.1] mb-6">
+                <!-- Main Heading -->
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-tight leading-[1.1] mb-6 drop-shadow-lg">
                     CRUSADERS <br>
                     <span class="italic font-light gold-gradient-text">CRICKET CLUB</span>
                 </h1>
 
-                <p class="text-lg md:text-2xl text-slate-300 font-light tracking-wide max-w-2xl mb-12">
+                <!-- Tagline -->
+                <p class="text-lg md:text-2xl text-slate-200 font-light tracking-wide max-w-2xl mb-12 drop-shadow-md">
                     Forged to Compete. Built to Win.
                 </p>
 
+                <!-- CTA Button Pair -->
                 <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
                     <a href="#match-centre" class="w-full sm:w-auto gold-button px-8 py-4 rounded-full text-navy font-bold text-xs uppercase tracking-[0.2em] shadow-xl text-center">
                         View Fixtures
                     </a>
-                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-gold/30 hover:border-gold font-bold text-xs uppercase tracking-[0.2em] transition-all backdrop-blur-sm text-center">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-gold/40 hover:border-gold font-bold text-xs uppercase tracking-[0.2em] transition-all backdrop-blur-md text-center">
                         Join Crusaders
                     </a>
                 </div>
 
-                <p class="mt-16 text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Affiliated with <span class="text-gold">Eden Roskill Cricket Club</span>
+                <!-- Quick Affiliation Tag -->
+                <p class="mt-16 text-xs uppercase tracking-[0.2em] text-slate-300 drop-shadow-sm">
+                    Affiliated with <span class="text-gold font-semibold">Eden Roskill Cricket Club</span>
                 </p>
             </div>
 
+            <!-- Bottom Gradient Blur transition -->
             <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy-dark to-transparent"></div>
         </section>
 
