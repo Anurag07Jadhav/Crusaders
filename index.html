@@ -131,7 +131,8 @@
                 <a href="#match-centre" class="hover:text-gold transition-colors">Fixtures</a>
                 <a href="#leadership" class="hover:text-gold transition-colors">Leadership</a>
                 <a href="#squad" class="hover:text-gold transition-colors">Squad</a>
-                <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
+<a href="#hall-of-fame" class="hover:text-gold transition-colors">Hall of Fame</a>
+<a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
                 <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
             </nav>
 
@@ -499,7 +500,28 @@
 
         </div>
     </section>
-        
+        <!-- HALL OF FAME SECTION -->
+        <section id="hall-of-fame" class="py-24 bg-navy relative border-t border-gold/10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                
+                <!-- Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-semibold block mb-2">Club Honors</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-white font-normal">
+                        Hall of Fame
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-3 font-light tracking-wide">
+                        Celebrating our championship winners and individual award achievers
+                    </p>
+                </div>
+
+                <!-- Award Winners Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="hall-of-fame-grid">
+                    <!-- Winner cards render here via JS -->
+                </div>
+
+            </div>
+        </section>
         <!-- 8. GALLERY -->
         <section id="gallery" class="py-24 bg-navy">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -760,7 +782,31 @@
     }
         // Re-run Lucide icon parser for dynamically injected elements
         lucide.createIcons();
+// Hall of Fame Data
+    const hallOfFameData = [
+        { name: "Player Name 1", award: "Player of the Season", year: "2025/26", icon: "🏆" },
+        { name: "Player Name 2", award: "Best Batsman", year: "2025/26", icon: "🏏" },
+        { name: "Player Name 3", award: "Best Bowler", year: "2025/26", icon: "🎯" }
+    ];
 
+    // Render Hall of Fame
+    const hofGrid = document.getElementById('hall-of-fame-grid');
+    if (hofGrid) {
+        hofGrid.innerHTML = '';
+        hallOfFameData.forEach(winner => {
+            const card = document.createElement('div');
+            card.className = "glass-card p-6 rounded-3xl border border-gold/20 text-center hover:border-gold/50 transition-all";
+            card.innerHTML = `
+                <div class="w-14 h-14 mx-auto rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-4 text-2xl">
+                    ${winner.icon}
+                </div>
+                <h4 class="font-serif text-xl text-white">${winner.name}</h4>
+                <p class="text-xs text-gold uppercase tracking-wider font-semibold mt-1">${winner.award}</p>
+                <p class="text-xs text-slate-400 mt-2">${winner.year}</p>
+            `;
+            hofGrid.appendChild(card);
+        });
+    }
     </script>
 </body>
 </html>
